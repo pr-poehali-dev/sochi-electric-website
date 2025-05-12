@@ -1,7 +1,6 @@
-
-import React from 'react';
-import { Check, ArrowRight } from 'lucide-react';
-import { Button } from './ui/button';
+import React from "react";
+import { Check, ArrowRight, Zap } from "lucide-react";
+import { Button } from "./ui/button";
 
 const About = () => {
   const advantages = [
@@ -9,7 +8,25 @@ const About = () => {
     "Комплексный подход к решению задач электроснабжения",
     "Использование только качественных материалов и оборудования",
     "Строгое соблюдение сроков выполнения работ",
-    "Гарантийное обслуживание и техническая поддержка"
+    "Гарантийное обслуживание и техническая поддержка",
+  ];
+
+  const pricing = [
+    {
+      title: "Базовый",
+      price: "от 5 000 ₽",
+      description: "Для небольших объектов",
+    },
+    {
+      title: "Стандарт",
+      price: "от 15 000 ₽",
+      description: "Для средних объектов",
+    },
+    {
+      title: "Премиум",
+      price: "от 30 000 ₽",
+      description: "Для крупных объектов",
+    },
   ];
 
   return (
@@ -24,20 +41,28 @@ const About = () => {
               className="w-full h-auto rounded-lg shadow-lg object-cover z-10"
             />
             <div className="absolute -bottom-6 -right-6 bg-primary p-6 rounded-lg shadow-lg">
-              <p className="text-white font-montserrat font-bold text-4xl">12+</p>
+              <p className="text-white font-montserrat font-bold text-4xl">
+                12+
+              </p>
               <p className="text-white/90 text-sm">лет опыта работы</p>
             </div>
           </div>
-          
+
           <div className="animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">О компании СочиЭнергоСтрой</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              О компании СочиЭнергоСтрой
+            </h2>
             <p className="text-lg text-muted-foreground mb-6">
-              Компания "СочиЭнергоСтрой" специализируется на предоставлении полного спектра услуг в области электроснабжения в Сочи и Краснодарском крае. 
+              Компания "СочиЭнергоСтрой" специализируется на предоставлении
+              полного спектра услуг в области электроснабжения в Сочи и
+              Краснодарском крае.
             </p>
             <p className="text-lg text-muted-foreground mb-8">
-              Мы работаем как с частными лицами, так и с коммерческими и промышленными объектами, обеспечивая надежные и энергоэффективные решения для любых задач.
+              Мы работаем как с частными лицами, так и с коммерческими и
+              промышленными объектами, обеспечивая надежные и энергоэффективные
+              решения для любых задач.
             </p>
-            
+
             <div className="mb-8">
               <h3 className="text-xl font-semibold mb-4">Наши преимущества:</h3>
               <ul className="space-y-3">
@@ -49,10 +74,34 @@ const About = () => {
                 ))}
               </ul>
             </div>
-            
+
+            <div className="mb-8 p-4 bg-accent rounded-lg">
+              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                <Zap className="text-primary" />
+                Ценовая политика
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {pricing.map((plan, index) => (
+                  <div
+                    key={index}
+                    className="bg-white p-4 rounded-md shadow-sm"
+                  >
+                    <h4 className="font-semibold">{plan.title}</h4>
+                    <p className="text-primary font-bold">{plan.price}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {plan.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             <Button className="group">
               Узнать больше
-              <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
+              <ArrowRight
+                size={18}
+                className="ml-2 transition-transform group-hover:translate-x-1"
+              />
             </Button>
           </div>
         </div>
